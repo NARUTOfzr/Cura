@@ -56,8 +56,8 @@ on:
                 type: boolean
 
     # Run the nightly at 3:25 UTC on working days
-    schedule:
-    - cron: '25 3 * * 1-5'
+    # schedule:
+    # - cron: '25 3 * * 1-5'
 
 jobs:
     windows-installer-create-exe:
@@ -90,62 +90,62 @@ jobs:
             msi_installer: true
         secrets: inherit
 
-    linux-installer-create:
-        if: ${{ inputs.build_linux }}
-        uses: ./.github/workflows/cura-installer.yml
-        with:
-            platform: 'ubuntu-20.04'
-            os_name: 'linux'
-            cura_conan_version: ${{ inputs.cura_conan_version }}
-            conan_args: ${{ inputs.conan_args }}
-            conan_config: ${{ inputs.conan_config }}
-            enterprise: ${{ inputs.enterprise }}
-            staging: ${{ inputs.staging }}
-            installer: ${{ inputs.installer }}
-            msi_installer: false
-        secrets: inherit
+    # linux-installer-create:
+    #     if: ${{ inputs.build_linux }}
+    #     uses: ./.github/workflows/cura-installer.yml
+    #     with:
+    #         platform: 'ubuntu-20.04'
+    #         os_name: 'linux'
+    #         cura_conan_version: ${{ inputs.cura_conan_version }}
+    #         conan_args: ${{ inputs.conan_args }}
+    #         conan_config: ${{ inputs.conan_config }}
+    #         enterprise: ${{ inputs.enterprise }}
+    #         staging: ${{ inputs.staging }}
+    #         installer: ${{ inputs.installer }}
+    #         msi_installer: false
+    #     secrets: inherit
 
-    linux-modern-installer-create:
-        if: ${{ inputs.build_linux }}
-        uses: ./.github/workflows/cura-installer.yml
-        with:
-            platform: 'ubuntu-22.04'
-            os_name: 'linux-modern'
-            cura_conan_version: ${{ inputs.cura_conan_version }}
-            conan_args: ${{ inputs.conan_args }}
-            conan_config: ${{ inputs.conan_config }}
-            enterprise: ${{ inputs.enterprise }}
-            staging: ${{ inputs.staging }}
-            installer: ${{ inputs.installer }}
-            msi_installer: false
-        secrets: inherit
+    # linux-modern-installer-create:
+    #     if: ${{ inputs.build_linux }}
+    #     uses: ./.github/workflows/cura-installer.yml
+    #     with:
+    #         platform: 'ubuntu-22.04'
+    #         os_name: 'linux-modern'
+    #         cura_conan_version: ${{ inputs.cura_conan_version }}
+    #         conan_args: ${{ inputs.conan_args }}
+    #         conan_config: ${{ inputs.conan_config }}
+    #         enterprise: ${{ inputs.enterprise }}
+    #         staging: ${{ inputs.staging }}
+    #         installer: ${{ inputs.installer }}
+    #         msi_installer: false
+    #     secrets: inherit
 
-    macos-dmg-create:
-        if: ${{ inputs.build_macos }}
-        uses: ./.github/workflows/cura-installer.yml
-        with:
-            platform: 'macos-11'
-            os_name: 'mac'
-            cura_conan_version: ${{ inputs.cura_conan_version }}
-            conan_args: ${{ inputs.conan_args }}
-            conan_config: ${{ inputs.conan_config }}
-            enterprise: ${{ inputs.enterprise }}
-            staging: ${{ inputs.staging }}
-            installer: ${{ inputs.installer }}
-            msi_installer: false
-        secrets: inherit
+    # macos-dmg-create:
+    #     if: ${{ inputs.build_macos }}
+    #     uses: ./.github/workflows/cura-installer.yml
+    #     with:
+    #         platform: 'macos-11'
+    #         os_name: 'mac'
+    #         cura_conan_version: ${{ inputs.cura_conan_version }}
+    #         conan_args: ${{ inputs.conan_args }}
+    #         conan_config: ${{ inputs.conan_config }}
+    #         enterprise: ${{ inputs.enterprise }}
+    #         staging: ${{ inputs.staging }}
+    #         installer: ${{ inputs.installer }}
+    #         msi_installer: false
+    #     secrets: inherit
 
-    macos-installer-create:
-        if: ${{ inputs.build_macos }}
-        uses: ./.github/workflows/cura-installer.yml
-        with:
-            platform: 'macos-11'
-            os_name: 'mac'
-            cura_conan_version: ${{ inputs.cura_conan_version }}
-            conan_args: ${{ inputs.conan_args }}
-            conan_config: ${{ inputs.conan_config }}
-            enterprise: ${{ inputs.enterprise }}
-            staging: ${{ inputs.staging }}
-            installer: ${{ inputs.installer }}
-            msi_installer: true
-        secrets: inherit
+    # macos-installer-create:
+    #     if: ${{ inputs.build_macos }}
+    #     uses: ./.github/workflows/cura-installer.yml
+    #     with:
+    #         platform: 'macos-11'
+    #         os_name: 'mac'
+    #         cura_conan_version: ${{ inputs.cura_conan_version }}
+    #         conan_args: ${{ inputs.conan_args }}
+    #         conan_config: ${{ inputs.conan_config }}
+    #         enterprise: ${{ inputs.enterprise }}
+    #         staging: ${{ inputs.staging }}
+    #         installer: ${{ inputs.installer }}
+    #         msi_installer: true
+    #     secrets: inherit
